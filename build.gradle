@@ -1,0 +1,46 @@
+
+plugins {
+	id 'eclipse'
+	id 'java-gradle-plugin'
+	id 'com.gradle.plugin-publish' version '1.1.0'
+}
+
+group  = 'io.github.dwarfley'
+version = '0.1.0-dev'
+
+gradlePlugin {
+	
+	website = 'https://github.com/Dwarfley/GradleVersionCompanion'
+	vcsUrl = 'https://github.com/Dwarfley/GradleVersionCompanion'
+	
+	plugins {
+		versionCompanionPlugin {
+			id = 'io.github.dwarfley.versioncompanion'
+			displayName = 'VersionCompanion'
+			description = 'This plugin automatically detects the current version of the project based on git tags. ' +
+						  'The plugin also provides helper tasks for printing the detected version and a list of all detected versions.'
+			tags.set(['version', 'git', 'tags', 'versioning', 'semantic-versioning', 'build-versioning', 'auto-versioning'])
+			implementationClass = 'io.github.dwarfley.gradle.versioncompanion.VersionCompanionPlugin'
+		}
+	}
+	
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+}
+
+tasks.named('test') {
+	
+	useJUnitPlatform()
+	
+	testLogging {
+		events "failed"
+		exceptionFormat "full"
+	}
+	
+}
