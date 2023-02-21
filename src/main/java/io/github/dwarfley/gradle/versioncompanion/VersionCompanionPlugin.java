@@ -5,7 +5,7 @@ import org.gradle.api.plugins.ExtensionContainer;
 import org.gradle.api.tasks.*;
 
 import io.github.dwarfley.gradle.versioncompanion.git.Git;
-import io.github.dwarfley.gradle.versioncompanion.tasks.CurrentVersionTask;
+import io.github.dwarfley.gradle.versioncompanion.tasks.*;
 import io.github.dwarfley.gradle.versioncompanion.util.GradleUtils;
 import io.github.dwarfley.gradle.versioncompanion.version.*;
 
@@ -34,7 +34,7 @@ public class VersionCompanionPlugin implements Plugin<Project> {
 		TaskContainer lTasks = pProject.getTasks();
 		
 		addTask(lTasks, "currentVersion", CurrentVersionTask.class);
-		addTask(lTasks, "allVersions", CurrentVersionTask.class);
+		addTask(lTasks, "allVersions", AllVersionsTask.class);
 		
 	}
 	
