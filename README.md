@@ -3,6 +3,15 @@
 The gradle version companion plugin automatically detects the current version of the project based on git tags.
 The plugin also provides helper tasks for printing the detected version and a list of all detected versions.
 
+## Installation
+
+Add the following entry to your build.gradle:
+```
+plugins {
+    id 'io.github.dwarfley.versioncompanion' version '0.1.0'
+}
+```
+
 ## Usage
 
 The project version is automatically detected and set by the plugin.
