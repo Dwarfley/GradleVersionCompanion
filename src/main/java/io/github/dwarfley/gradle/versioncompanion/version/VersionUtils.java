@@ -13,6 +13,10 @@ public final class VersionUtils {
 		
 		List<FullVersion> lResult = new ArrayList<>();
 		
+		if(pRepo.isEmpty()){
+			return lResult;
+		}
+		
 		List<String> lTags = pRepo.getAllTags();
 		List<Version> lVersions = parseAllVersions(pExt, lTags);
 		
@@ -31,14 +35,17 @@ public final class VersionUtils {
 	
 	public static FullVersion getCurrent(VersionCompanionExtension pExt, GitRepository pRepo){
 		
+		boolean lIsEmpty = pRepo.isEmpty();
+		
 		FullVersion lResult;
 		
-		Version lVersion;
-		
+		Version lVersion = null;
 		boolean lIsDev = true;
 		int lDepth = 0;
 		
-		lVersion = parseLatestVersion(pExt, pRepo.getCurrentTags());
+		if(!lIsEmpty){
+			lVersion = parseLatestVersion(pExt, pRepo.getCurrentTags());
+		}
 		
 		if(lVersion != null){
 			
@@ -52,7 +59,9 @@ public final class VersionUtils {
 			
 		}else{
 			
-			lVersion = parseLatestVersion(pExt, pRepo.getReachableTags());
+			if(!lIsEmpty){
+				lVersion = parseLatestVersion(pExt, pRepo.getReachableTags());
+			}
 			
 			if(lVersion != null){
 				
@@ -69,7 +78,10 @@ public final class VersionUtils {
 				
 			}else{
 				
-				lDepth = pRepo.getCommitCount();
+				if(!lIsEmpty){
+					lDepth = pRepo.getCommitCount();
+				}
+				
 				lResult = new FullVersion(0, 1, 0);
 				
 			}
