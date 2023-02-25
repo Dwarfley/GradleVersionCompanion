@@ -99,6 +99,17 @@ public final class GitRepository {
 		return lTags;
 	}
 	
+	public boolean isEmpty(){
+		
+		List<String> lResult = Executor.execLines(mRootDir, new String[] {
+			"git",
+			"rev-parse",
+			"HEAD"
+		});
+		
+		return lResult == null;
+	}
+	
 	public boolean isDirty(){
 		
 		List<String> lStatus = Executor.execLines(mRootDir, new String[] {
