@@ -8,7 +8,7 @@ The plugin also provides helper tasks for printing the detected version and a li
 Add the following entry to your build.gradle:
 ```
 plugins {
-    id 'io.github.dwarfley.versioncompanion' version '0.1.0'
+    id 'io.github.dwarfley.version-companion' version '0.1.3'
 }
 ```
 
