@@ -15,7 +15,7 @@ gradlePlugin {
 	
 	plugins {
 		versionCompanionPlugin {
-			id = 'io.github.dwarfley.versioncompanion'
+			id = 'io.github.dwarfley.version-companion'
 			displayName = 'VersionCompanion'
 			description = 'The version companion plugin automatically detects the current version of the project based on git tags.'
 			tags.set(['version', 'git', 'tags', 'versioning', 'semantic-versioning', 'build-versioning', 'auto-versioning'])
