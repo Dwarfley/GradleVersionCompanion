@@ -17,11 +17,8 @@ public final class GitRepository {
 	
 	public int getTagDepth(String pTag){
 		
-		String lDescription = Executor.exec(mRootDir, new String[] {
-			"git",
-			"describe",
-			"--match",
-			pTag
+		String lDescription = Executor.exec(mRootDir, new String[]{
+			"git", "describe", "--match", pTag
 		});
 		
 		if(lDescription == null){
@@ -39,12 +36,8 @@ public final class GitRepository {
 	
 	public int getCommitCount(){
 		
-		String lCount = Executor.exec(mRootDir, new String[] {
-			"git",
-			"rev-list",
-			"--first-parent",
-			"--count",
-			"HEAD"
+		String lCount = Executor.exec(mRootDir, new String[]{
+			"git", "rev-list", "--first-parent", "--count", "HEAD"
 		});
 		
 		if(lCount == null){
@@ -56,11 +49,8 @@ public final class GitRepository {
 	
 	public List<String> getCurrentTags(){
 		
-		List<String> lTags = Executor.execLines(mRootDir, new String[] {
-			"git",
-			"tag",
-			"--points-at",
-			"HEAD"
+		List<String> lTags = Executor.execLines(mRootDir, new String[]{
+			"git", "tag", "--points-at", "HEAD"
 		});
 		
 		if(lTags == null){
@@ -72,10 +62,8 @@ public final class GitRepository {
 	
 	public List<String> getReachableTags(){
 		
-		List<String> lTags = Executor.execLines(mRootDir, new String[] {
-			"git",
-			"tag",
-			"--merged"
+		List<String> lTags = Executor.execLines(mRootDir, new String[]{
+			"git", "tag", "--merged"
 		});
 		
 		if(lTags == null){
@@ -87,9 +75,8 @@ public final class GitRepository {
 	
 	public List<String> getAllTags(){
 		
-		List<String> lTags = Executor.execLines(mRootDir, new String[] {
-			"git",
-			"tag"
+		List<String> lTags = Executor.execLines(mRootDir, new String[]{
+			"git", "tag"
 		});
 		
 		if(lTags == null){
@@ -101,10 +88,8 @@ public final class GitRepository {
 	
 	public boolean isEmpty(){
 		
-		List<String> lResult = Executor.execLines(mRootDir, new String[] {
-			"git",
-			"rev-parse",
-			"HEAD"
+		List<String> lResult = Executor.execLines(mRootDir, new String[]{
+			"git", "rev-parse", "HEAD"
 		});
 		
 		return lResult == null;
@@ -112,10 +97,8 @@ public final class GitRepository {
 	
 	public boolean isDirty(){
 		
-		List<String> lStatus = Executor.execLines(mRootDir, new String[] {
-			"git",
-			"status",
-			"--porcelain"
+		List<String> lStatus = Executor.execLines(mRootDir, new String[]{
+			"git", "status", "--porcelain"
 		});
 		
 		if(lStatus == null){

@@ -6,8 +6,6 @@ import java.util.*;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.dwarfley.gradle.versioncompanion.version.*;
-
 final class VersionSorterTest {
 	
 	@Test

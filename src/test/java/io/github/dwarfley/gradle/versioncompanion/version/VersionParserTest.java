@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.dwarfley.gradle.versioncompanion.version.VersionParser;
-
 final class VersionParserTest {
 	
 	@Test

@@ -16,9 +16,8 @@ public final class Git {
 	}
 	
 	public static String getVersion(){
-		return Executor.exec(new String[] {
-			"git",
-			"--version"
+		return Executor.exec(new String[]{
+			"git", "--version"
 		});
 	}
 	
@@ -51,10 +50,8 @@ public final class Git {
 	
 	private static boolean isRepo(Path pRootDir){
 		
-		String lGitDir = Executor.exec(pRootDir, new String[] {
-			"git",
-			"rev-parse",
-			"--show-toplevel"
+		String lGitDir = Executor.exec(pRootDir, new String[]{
+			"git", "rev-parse", "--show-toplevel"
 		});
 		
 		if(lGitDir == null){
